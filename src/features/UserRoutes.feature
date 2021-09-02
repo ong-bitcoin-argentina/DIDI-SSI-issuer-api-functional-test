@@ -1,5 +1,5 @@
 @issuer-server
-Feature: ShareRequest Routes
+Feature: User Routes
   In order manage directory
   As a QA Automation
   I want to make sure CRUD operations through REST API works fine

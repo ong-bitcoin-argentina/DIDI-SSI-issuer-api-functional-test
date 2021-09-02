@@ -6,19 +6,28 @@ Feature: Image Routes
 
   Scenario Outline: Save an image in the database and return its id.
     Given A account <request>
-    When I send POST request to /admin/user/phone
+    When I send POST request to /image
     Then I get response code 200
 
     Examples:
-      | request                 |
-      | { "phone": "40762726" } |
+      | request                |
+      | { "file": "40762726" } |
 
 
-  Scenario Outline: Get confidential information about the user according to his did.
+  Scenario Outline: Returns an image given an id.
     Given A account
-    When I send GET request to /admin/user/did/: <did>
+    When I send GET request to /image/ <id>
     Then I get response code 200
 
     Examples:
-      |                           did                          |
-      |  did:ethr:0xd56d90753777b4ab2013ad06ed3ae775f1832cbc   |
+      |                           id                          |
+      |  did:ethr:0xd56d90753777b4ab2013ad06ed3ae775f1832cbc  |
+
+  Scenario Outline: Delete an image given an id.
+    Given A account
+    When I send DELETE request to /image/ <id>
+    Then I get response code 200 and status success
+
+    Examples:
+      |id                                                          |
+      |{"did":"did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160"}|
