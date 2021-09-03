@@ -11,10 +11,13 @@ Feature: Default Routes
     Then I get response code 200
 
   Scenario Outline: Change the default
-    Given A did and random name request
+    Given A request <body>
     When I send PUT request to /default
     Then I get response code 200
 
+    Examples:
+        | body      |
+        | {"registerId": "00001", "templateId":}  |
 
   Scenario Outline: Register new default
     Given A request <body>
