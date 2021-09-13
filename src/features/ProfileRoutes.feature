@@ -1,24 +1,32 @@
 @issuer-server
-Feature: Presentation Routes
+Feature: Profile Routes
   In order manage directory
   As a QA Automation
   I want to make sure CRUD operations through REST API works fine
 
-  Scenario Outline: Get a presentation given an id
-    Given A account
-    When I send GET request to /presentation/: <id>
+  Scenario Outline: Register new profile
+    Given A account <body>
+    When I send GET request to /profile 
     Then I get response code 200
 
     Examples:
-      | id      |
-      |321321312|
+      | body                                  |
+      |{"name": "Gaston Genaud", "types": "" }| 
 
-  Scenario Outline: Save a presentation
-    Given A token <request>
-    When I send POST request to /presentation
+  Scenario Outline:  
+    Given A request <request>
+    When I send POST request to /profile/ <id>
     Then I get response code 200
 
     Examples:
-      | request                  |
-      | { "jwts": "75f1832cbc" } |
+      | request                  |  id  |
+      | { "jwts": "75f1832cbc" } |09391 |
 
+ Scenario Outline:
+    Given A request
+    When I send DELETE request to /profile/ <id>
+    Then I get response code 200
+
+    Examples: 
+      |  id  |
+      |123890|
