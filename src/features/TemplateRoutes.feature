@@ -1,65 +1,58 @@
 @issuer-server
-Feature: Semillas Routes
+Feature: Template Routes
   In order manage directory
   As a QA Automation
   I want to make sure CRUD operations through REST API works fine
 
-  Scenario Outline: Semillas identity validation request
-    Given A account <request>
-    When I send POST request to /semillas/validateDni
+  Scenario Outline: Get the list of templates with the information of the certificates models generate of the issuer 
+    Given A account
+    When I send GET request to /template/all
+    Then I get response code 200
+
+
+  Scenario Outline: Return a model of certificate from id
+    Given A account
+    When I send GET request to /template/ <id>
     Then I get response code 200
 
     Examples:
-      | request                                                                                                                                |
-      | {"did":"did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160","dni":"40762375", "email": "gaston.genaud@didi.org.ar", "phone": "+542215559612", "name":"Juan", "lastName":"Perez" } |
+      | id |
+      | 10 |
 
-  Scenario Outline: Request semillas credentials
+  Scenario Outline: Generates a new certificate model without content
     Given A token <request>
-    When I send POST request to /semillas/notifyDniDid
+    When I send POST request to /template
     Then I get response code 200
 
     Examples:
-      | request                                                                             |
-      | { "did": "did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160", "dni": "40762375" } |
+      | request                                                              |
+      | { "name": "Template from automation", "registerId": "812903812908" } |
 
-  Scenario Outline: Update the status of the identity validation request
+  Scenario Outline: Edit a certificate model with the body 
     Given A account <request>
-    When I send PATCH request to /semillas/identityValidation
+    When I send PUT request to /template/312938
     Then I get response code 200 and status success
 
     Examples:
       | request                                                                               |
-      | {"did":"did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160", "state": "IN_PROGRESS"} |
+      |{"data": "data", "preview": "Preview example", "category": "RSK", "type": "type example", "registerId": "8219039"}| 
 
-
-  Scenario Outline: Get identity validation status from Semillas
-    Given A account
-    When I send GET request to /semillas/identityValidation/:<did>
+   Scenario Outline: Delete a certificate model
+    Given A account <body>
+    When I send DELETE request to /template/901238129
     Then I get response code 200 and status success
 
     Examples:
-      |did                                                |
-      |did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160|
+      |body                                                              |
+      |{"name": "Template from automation", "registerId": "812903812908"}|
 
-  Scenario Outline: User shares their credentials to the provider to request their service
+  Scenario Outline: Emit a request for information from a global participant from a certificate request
     Given A account <request>
-    When I send POST request to /credentialShare
+    When I send POST request to /template/request/2130321908
     Then I get response code 200
 
     Examples:
-      | request                                                                                                                                                                                                          |
-      | {"did":"did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160", "email": "gaston.genaud@didi.org.ar", "phone": "+542215559612", "providerId":"20", "viewerJWT":"20", "customProviderEmail":"20", "dni":"40762375"} |
+      | request                                                              |
+      | { "name": "Template from automation", "registerId": "812903812908" } |
 
-  Scenario Outline: Get the semillas providers
-    Given A account
-    When I send GET request to /semillas/prestadores
-    Then I get response code 200
 
- Scenario Outline: Remove an identity validation request from Semillas
-    Given A account <did>
-    When I send DELETE request to /semillas/identityValidation
-    Then I get response code 200 and status success
-
-    Examples:
-      |did                                                          |
-      |{"did":"did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160"}|
