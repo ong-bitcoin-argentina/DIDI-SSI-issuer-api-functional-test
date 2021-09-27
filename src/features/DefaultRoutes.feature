@@ -11,7 +11,7 @@ Feature: Default Routes
     Then I get response code 200
 
   Scenario Outline: Change the default
-    Given A request <body>
+    Given A account <body>
     When I send PUT request to /default
     Then I get response code 200
 
@@ -20,7 +20,7 @@ Feature: Default Routes
         | {"registerId": "00001", "templateId":}  |
 
   Scenario Outline: Register new default
-    Given A request <body>
+    Given A account <body>
     When I send POST request to /default
     Then I get response code 200 and status success
 

@@ -32,6 +32,23 @@ const postData = (url, data, token) => {
     }
 }
 
+const putData = (url, data, token) => {
+    try {
+        if (token!=null) {
+            return axios.put(url, data, { headers : {
+                Authorization : token
+            }});
+        }
+        else {
+            return axios.put(url, data);
+        }
+        
+    } catch (e) {
+        console.error('exception occurred while POST', e);
+        throw e;
+    }
+}
+
 const patchData = async (url, data) => {
     try {
         return await axios.patch(url, data);
@@ -54,5 +71,6 @@ module.exports = {
     getData,
     postData,
     patchData,
-    deleteData
+    deleteData,
+    putData
 }

@@ -14,7 +14,7 @@ Feature: Profile Routes
       |{"name": "Gaston Genaud", "types": "" }| 
 
   Scenario Outline:  
-    Given A request <request>
+    Given A account <request>
     When I send POST request to /profile/ <id>
     Then I get response code 200
 
@@ -23,7 +23,7 @@ Feature: Profile Routes
       | { "jwts": "75f1832cbc" } |09391 |
 
  Scenario Outline:
-    Given A request
+    Given A account
     When I send DELETE request to /profile/ <id>
     Then I get response code 200
 
