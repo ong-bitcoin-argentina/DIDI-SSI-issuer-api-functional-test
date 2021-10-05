@@ -17,12 +17,12 @@ Feature: Default Routes
 
     Examples:
         | body      |
-        | {"registerId": "00001", "templateId":}  |
+        | {"registerId": "00001", "templateId":"912809312"}  |
 
   Scenario Outline: Register new default
     Given A account <body>
     When I send POST request to /default
-    Then I get response code 200 and status success
+    Then I get response code 200
 
     Examples:
         | body                     |

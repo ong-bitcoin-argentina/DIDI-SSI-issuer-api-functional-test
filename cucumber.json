@@ -16,7 +16,7 @@
       {
         "id": "cert-routes;get-confidential-information-about-the-user-according-to-his-did.",
         "keyword": "Scenario",
-        "line": 14,
+        "line": 25,
         "name": "Get confidential information about the user according to his did.",
         "tags": [
           {
@@ -29,40 +29,40 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 8,
+            "line": 19,
             "name": "A account",
             "match": {
               "location": "src/steps/steps.js:10"
             },
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 1000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 9,
-            "name": "I send GET request to /cert/all: did:ethr:0xd56d90753777b4ab2013ad06ed3ae775f1832cbc",
+            "line": 20,
+            "name": "I send GET request to /cert?id= 775f1832cbc",
             "match": {
               "location": "src/steps/steps.js:49"
             },
             "result": {
-              "status": "passed",
-              "duration": 623000000
+              "status": "failed",
+              "duration": 676000000,
+              "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 10,
+            "line": 21,
             "name": "I get response code 200",
             "match": {
               "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "passed",
-              "duration": 1000000
+              "status": "skipped"
             }
           }
         ]
@@ -70,7 +70,7 @@
       {
         "id": "cert-routes;obtains-confidential-information-about-the-user-according-to-their-phone-number.",
         "keyword": "Scenario",
-        "line": 24,
+        "line": 35,
         "name": "Obtains confidential information about the user according to their phone number.",
         "tags": [
           {
@@ -83,94 +83,40 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 18,
+            "line": 29,
             "name": "A account { \"phone\": \"40762726\" }",
             "match": {
               "location": "src/steps/steps.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 19,
-            "name": "I send GET request to /cert/find: <did>",
-            "match": {
-              "location": "src/steps/steps.js:49"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 588000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 20,
-            "name": "I get response code 200",
-            "match": {
-              "location": "src/steps/steps.js:58"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          }
-        ]
-      },
-      {
-        "id": "cert-routes;get-confidential-information-about-the-user-according-to-his-did.",
-        "keyword": "Scenario",
-        "line": 34,
-        "name": "Get confidential information about the user according to his did.",
-        "tags": [
-          {
-            "name": "@issuer-server",
-            "line": 1
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 28,
-            "name": "A account",
-            "match": {
-              "location": "src/steps/steps.js:10"
-            },
-            "result": {
-              "status": "passed",
               "duration": 0
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 29,
-            "name": "I send GET request to /cert/ <id>",
-            "match": {
-              "location": "src/steps/steps.js:49"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 585000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
             "line": 30,
+            "name": "I send POST request to /cert?id= 3902930",
+            "match": {
+              "location": "src/steps/steps.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 561000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
             "name": "I get response code 200",
             "match": {
               "location": "src/steps/steps.js:58"
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           }
         ]
@@ -205,14 +151,13 @@
             "arguments": [],
             "keyword": "When ",
             "line": 39,
-            "name": "I send POST request to /cert/ <id>",
+            "name": "I send POST request to /cert/",
             "match": {
               "location": "src/steps/steps.js:25"
             },
             "result": {
-              "status": "failed",
-              "duration": 576000000,
-              "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
+              "status": "passed",
+              "duration": 588000000
             }
           },
           {
@@ -224,7 +169,8 @@
               "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 0
             }
           }
         ]
@@ -232,7 +178,7 @@
       {
         "id": "cert-routes;obtains-confidential-information-about-the-user-according-to-their-phone-number.",
         "keyword": "Scenario",
-        "line": 53,
+        "line": 59,
         "name": "Obtains confidential information about the user according to their phone number.",
         "tags": [
           {
@@ -245,7 +191,7 @@
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 47,
+            "line": 53,
             "name": "A account { \"phone\": \"40762726\" }",
             "match": {
               "location": "src/steps/steps.js:6"
@@ -258,20 +204,20 @@
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 48,
-            "name": "I send POST request to /cert/",
+            "line": 54,
+            "name": "I send POST request to /cert/updateAllDeleted",
             "match": {
               "location": "src/steps/steps.js:25"
             },
             "result": {
               "status": "passed",
-              "duration": 567000000
+              "duration": 593000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 49,
+            "line": 55,
             "name": "I get response code 200",
             "match": {
               "location": "src/steps/steps.js:58"
@@ -279,114 +225,6 @@
             "result": {
               "status": "passed",
               "duration": 0
-            }
-          }
-        ]
-      },
-      {
-        "id": "cert-routes;get-confidential-information-about-the-user-according-to-his-did.",
-        "keyword": "Scenario",
-        "line": 62,
-        "name": "Get confidential information about the user according to his did.",
-        "tags": [
-          {
-            "name": "@issuer-server",
-            "line": 1
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 56,
-            "name": "A account",
-            "match": {
-              "location": "src/steps/steps.js:10"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 57,
-            "name": "I send GET request to /cert/{id}/emmit",
-            "match": {
-              "location": "src/steps/steps.js:49"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 605000000,
-              "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 58,
-            "name": "I get response code 200",
-            "match": {
-              "location": "src/steps/steps.js:58"
-            },
-            "result": {
-              "status": "skipped"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cert-routes;obtains-confidential-information-about-the-user-according-to-their-phone-number.",
-        "keyword": "Scenario",
-        "line": 71,
-        "name": "Obtains confidential information about the user according to their phone number.",
-        "tags": [
-          {
-            "name": "@issuer-server",
-            "line": 1
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 65,
-            "name": "A account { \"phone\": \"40762726\" }",
-            "match": {
-              "location": "src/steps/steps.js:6"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 66,
-            "name": "I send POST request to /updateAllDeleted",
-            "match": {
-              "location": "src/steps/steps.js:25"
-            },
-            "result": {
-              "status": "failed",
-              "duration": 583000000,
-              "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 67,
-            "name": "I get response code 200",
-            "match": {
-              "location": "src/steps/steps.js:58"
-            },
-            "result": {
-              "status": "skipped"
             }
           }
         ]
@@ -424,14 +262,13 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 14,
-            "name": "A account {\"registerId\": \"00001\", \"templateId\":}",
+            "name": "A account {\"registerId\": \"00001\", \"templateId\":\"912809312\"}",
             "match": {
               "location": "src/steps/steps.js:6"
             },
             "result": {
-              "status": "failed",
-              "duration": 0,
-              "error_message": "SyntaxError: Unexpected token } in JSON at position 37\n    at JSON.parse (<anonymous>)\n    at CustomWorld.<anonymous> (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/src/steps/steps.js:7:36)"
+              "status": "passed",
+              "duration": 0
             }
           },
           {
@@ -443,7 +280,9 @@
               "location": "src/steps/steps.js:37"
             },
             "result": {
-              "status": "skipped"
+              "status": "failed",
+              "duration": 578000000,
+              "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
             }
           },
           {
@@ -496,21 +335,20 @@
             },
             "result": {
               "status": "passed",
-              "duration": 571000000
+              "duration": 592000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 25,
-            "name": "I get response code 200 and status success",
+            "name": "I get response code 200",
             "match": {
-              "location": "src/steps/steps.js:62"
+              "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "failed",
-              "duration": 3000000,
-              "error_message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\u001b[32m+ actual\u001b[39m \u001b[31m- expected\u001b[39m\n\n\u001b[32m+\u001b[39m 'error'\n\u001b[31m-\u001b[39m 'success'\n    + expected - actual\n\n    -error\n    +success\n\n    at CustomWorld.<anonymous> (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/src/steps/steps.js:64:12)"
+              "status": "passed",
+              "duration": 0
             }
           }
         ]
@@ -567,7 +405,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 576000000
+              "duration": 617000000
             }
           },
           {
@@ -602,13 +440,13 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 23,
-            "name": "A account {\"name\": \"00000\", \"did\": \"did:ethr:082103uj03ujm32193m2\", \"registerId\": \"\"}",
+            "name": "A account {\"name\": \"00000\", \"did\": \"did:ethr:082103uj03ujm32193m2\", \"registerId\": \"31231231\"}",
             "match": {
               "location": "src/steps/steps.js:6"
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           },
           {
@@ -621,7 +459,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 572000000
+              "duration": 584000000
             }
           },
           {
@@ -675,7 +513,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 576000000
+              "duration": 575000000
             }
           },
           {
@@ -688,7 +526,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           }
         ]
@@ -745,7 +583,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 595000000
+              "duration": 586000000
             }
           },
           {
@@ -793,13 +631,13 @@
             "arguments": [],
             "keyword": "When ",
             "line": 19,
-            "name": "I send GET request to /image/ did:ethr:0xd56d90753777b4ab2013ad06ed3ae775f1832cbc",
+            "name": "I send GET request to /image/ 0xd56d90753777b4ab2013ad06ed3ae775f1832cbc",
             "match": {
               "location": "src/steps/steps.js:49"
             },
             "result": {
               "status": "passed",
-              "duration": 576000000
+              "duration": 572000000
             }
           },
           {
@@ -812,56 +650,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
-            }
-          }
-        ]
-      },
-      {
-        "id": "image-routes;delete-an-image-given-an-id.",
-        "keyword": "Scenario",
-        "line": 33,
-        "name": "Delete an image given an id.",
-        "tags": [
-          {
-            "name": "@issuer-server",
-            "line": 1
-          }
-        ],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 27,
-            "name": "A account",
-            "match": {
-              "location": "src/steps/steps.js:10"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 28,
-            "name": "I send DELETE request to /image/ {\"did\":\"did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160\"}",
-            "result": {
-              "status": "ambiguous"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 29,
-            "name": "I get response code 200 and status success",
-            "match": {
-              "location": "src/steps/steps.js:62"
-            },
-            "result": {
-              "status": "skipped"
+              "duration": 0
             }
           }
         ]
@@ -918,7 +707,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 603000000
+              "duration": 581000000
             }
           },
           {
@@ -972,7 +761,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 597000000
+              "duration": 577000000
             }
           },
           {
@@ -985,7 +774,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           }
         ]
@@ -1020,13 +809,14 @@
             "arguments": [],
             "keyword": "When ",
             "line": 37,
-            "name": "I send GET request to /participant/ ethr:did:i0di0asjdi0asjd",
+            "name": "I send GET request to /participant/?did= ethr:did:i0di0asjdi0asjd",
             "match": {
               "location": "src/steps/steps.js:49"
             },
             "result": {
-              "status": "passed",
-              "duration": 569000000
+              "status": "failed",
+              "duration": 604000000,
+              "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
             }
           },
           {
@@ -1038,8 +828,7 @@
               "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "passed",
-              "duration": 1000000
+              "status": "skipped"
             }
           }
         ]
@@ -1080,7 +869,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 550000000
+              "duration": 602000000
             }
           },
           {
@@ -1093,7 +882,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           }
         ]
@@ -1115,14 +904,13 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 56,
-            "name": "A account {\"name\":\"participant name\",\"templateId\": \"1243\", \"data\": []",
+            "name": "A account {\"name\":\"participant name\",\"templateId\": \"1243\", \"data\": []}",
             "match": {
               "location": "src/steps/steps.js:6"
             },
             "result": {
-              "status": "failed",
-              "duration": 1000000,
-              "error_message": "SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at CustomWorld.<anonymous> (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/src/steps/steps.js:7:36)"
+              "status": "passed",
+              "duration": 0
             }
           },
           {
@@ -1134,7 +922,9 @@
               "location": "src/steps/steps.js:37"
             },
             "result": {
-              "status": "skipped"
+              "status": "failed",
+              "duration": 600000000,
+              "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
             }
           },
           {
@@ -1168,14 +958,13 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 70,
-            "name": "A account {\"access_token\": \"9831290839018390asdjdf\"",
+            "name": "A account {\"access_token\": \"9831290839018390asdjdf\"}",
             "match": {
               "location": "src/steps/steps.js:6"
             },
             "result": {
-              "status": "failed",
-              "duration": 0,
-              "error_message": "SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at CustomWorld.<anonymous> (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/src/steps/steps.js:7:36)"
+              "status": "passed",
+              "duration": 0
             }
           },
           {
@@ -1187,7 +976,8 @@
               "location": "src/steps/steps.js:25"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 571000000
             }
           },
           {
@@ -1199,7 +989,8 @@
               "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 0
             }
           }
         ]
@@ -1221,14 +1012,13 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 79,
-            "name": "A account {\"access_token\": \"9831290839018390asdjdf\"",
+            "name": "A account {\"access_token\": \"9831290839018390asdjdf\"}",
             "match": {
               "location": "src/steps/steps.js:6"
             },
             "result": {
-              "status": "failed",
-              "duration": 0,
-              "error_message": "SyntaxError: Unexpected end of JSON input\n    at JSON.parse (<anonymous>)\n    at CustomWorld.<anonymous> (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/src/steps/steps.js:7:36)"
+              "status": "passed",
+              "duration": 0
             }
           },
           {
@@ -1240,7 +1030,8 @@
               "location": "src/steps/steps.js:25"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 596000000
             }
           },
           {
@@ -1252,7 +1043,8 @@
               "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 0
             }
           }
         ]
@@ -1309,7 +1101,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 574000000
+              "duration": 565000000
             }
           },
           {
@@ -1322,7 +1114,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           }
         ]
@@ -1363,7 +1155,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 567000000,
+              "duration": 583000000,
               "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
             }
           },
@@ -1412,8 +1204,12 @@
             "keyword": "When ",
             "line": 27,
             "name": "I send DELETE request to /profile/ 123890",
+            "match": {
+              "location": "src/steps/steps.js:45"
+            },
             "result": {
-              "status": "ambiguous"
+              "status": "passed",
+              "duration": 575000000
             }
           },
           {
@@ -1425,7 +1221,8 @@
               "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 0
             }
           }
         ]
@@ -1482,7 +1279,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 568000000
+              "duration": 574000000
             }
           },
           {
@@ -1495,7 +1292,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           }
         ]
@@ -1536,7 +1333,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 553000000
+              "duration": 571000000
             }
           },
           {
@@ -1606,7 +1403,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 582000000
+              "duration": 584000000
             }
           },
           {
@@ -1660,7 +1457,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 599000000
+              "duration": 931000000
             }
           },
           {
@@ -1701,7 +1498,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           },
           {
@@ -1714,7 +1511,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 575000000,
+              "duration": 567000000,
               "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
             }
           },
@@ -1722,9 +1519,9 @@
             "arguments": [],
             "keyword": "Then ",
             "line": 34,
-            "name": "I get response code 200 and status success",
+            "name": "I get response code 200",
             "match": {
-              "location": "src/steps/steps.js:62"
+              "location": "src/steps/steps.js:58"
             },
             "result": {
               "status": "skipped"
@@ -1755,7 +1552,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           },
           {
@@ -1768,21 +1565,20 @@
             },
             "result": {
               "status": "passed",
-              "duration": 581000000
+              "duration": 601000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 43,
-            "name": "I get response code 200 and status success",
+            "name": "I get response code 200",
             "match": {
-              "location": "src/steps/steps.js:62"
+              "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "failed",
-              "duration": 1000000,
-              "error_message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\u001b[32m+ actual\u001b[39m \u001b[31m- expected\u001b[39m\n\n\u001b[32m+\u001b[39m 'error'\n\u001b[31m-\u001b[39m 'success'\n    + expected - actual\n\n    -error\n    +success\n\n    at CustomWorld.<anonymous> (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/src/steps/steps.js:64:12)"
+              "status": "passed",
+              "duration": 0
             }
           }
         ]
@@ -1823,7 +1619,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 573000000
+              "duration": 591000000
             }
           },
           {
@@ -1836,7 +1632,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           }
         ]
@@ -1893,7 +1689,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 591000000
+              "duration": 563000000
             }
           },
           {
@@ -1934,7 +1730,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           },
           {
@@ -1947,7 +1743,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 581000000
+              "duration": 586000000
             }
           },
           {
@@ -1960,7 +1756,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 0
+              "duration": 1000000
             }
           }
         ]
@@ -2001,7 +1797,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 747000000
+              "duration": 1086000000
             }
           },
           {
@@ -2014,7 +1810,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           }
         ]
@@ -2042,7 +1838,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 0
             }
           },
           {
@@ -2050,8 +1846,12 @@
             "keyword": "When ",
             "line": 41,
             "name": "I send DELETE request to /user/ sd8ad7",
+            "match": {
+              "location": "src/steps/steps.js:45"
+            },
             "result": {
-              "status": "ambiguous"
+              "status": "passed",
+              "duration": 572000000
             }
           },
           {
@@ -2063,7 +1863,8 @@
               "location": "src/steps/steps.js:58"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 1000000
             }
           }
         ]
@@ -2104,7 +1905,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 601000000,
+              "duration": 599000000,
               "error_message": "Error: Request failed with status code 404\n    at createError (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/createError.js:16:15)\n    at settle (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/core/settle.js:17:12)\n    at IncomingMessage.handleStreamEnd (/media/gastongenaud/Elements/DIDI/DIDI/DIDI-SSI-issuer-api-functional-test/node_modules/axios/lib/adapters/http.js:260:11)\n    at IncomingMessage.emit (events.js:412:35)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)"
             }
           },

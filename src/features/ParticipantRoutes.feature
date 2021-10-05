@@ -34,7 +34,7 @@ Feature: Participant Routes
 
   Scenario Outline: Return participant information with linked users
     Given A account 
-    When I send GET request to /participant/ <did>
+    When I send GET request to /participant/?did= <did>
     Then I get response code 200 
 
     Examples:
@@ -59,7 +59,7 @@ Feature: Participant Routes
 
     Examples:
       | request                                                    |
-      | {"name":"participant name","templateId": "1243", "data": []|
+      | {"name":"participant name","templateId": "1243", "data": []}|
 
   Scenario Outline: delete a participant
     Given A account 
@@ -73,7 +73,7 @@ Feature: Participant Routes
 
     Examples:
       | request                                   |
-      | {"access_token": "9831290839018390asdjdf" |
+      | {"access_token": "9831290839018390asdjdf"} |
 
   Scenario Outline: Loading participant info for a particular template from the QR generated in "/ template /: id / qr /: requestCode"
     Given A account <request>
@@ -82,7 +82,7 @@ Feature: Participant Routes
 
     Examples:
       | request                                   |
-      | {"access_token": "9831290839018390asdjdf" |
+      | {"access_token": "9831290839018390asdjdf"} |
 
 
 

@@ -31,7 +31,7 @@ Feature: Template Routes
   Scenario Outline: Edit a certificate model with the body 
     Given A account <request>
     When I send PUT request to /template/312938
-    Then I get response code 200 and status success
+    Then I get response code 200 
 
     Examples:
       | request                                                                               |
@@ -40,7 +40,7 @@ Feature: Template Routes
    Scenario Outline: Delete a certificate model
     Given A account <body>
     When I send DELETE request to /template/901238129
-    Then I get response code 200 and status success
+    Then I get response code 200
 
     Examples:
       |body                                                              |
