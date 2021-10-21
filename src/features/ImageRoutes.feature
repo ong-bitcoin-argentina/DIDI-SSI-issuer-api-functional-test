@@ -20,14 +20,10 @@ Feature: Image Routes
     Then I get response code 200
 
     Examples:
-      |                           id                          |
-      |  did:ethr:0xd56d90753777b4ab2013ad06ed3ae775f1832cbc  |
+      |                         id                   |
+      |  0xd56d90753777b4ab2013ad06ed3ae775f1832cbc  |
 
   Scenario Outline: Delete an image given an id.
     Given A account
-    When I send DELETE request to /image/ <id>
-    Then I get response code 200 and status success
-
-    Examples:
-      |id                                                          |
-      |{"did":"did:ethr:0x184373f25dfe8596395282550853a9d5e1b11160"}|
+    When I send DELETE request to /image/312312312.jpg
+    Then I get response code 200

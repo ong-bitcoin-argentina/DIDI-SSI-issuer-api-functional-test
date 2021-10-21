@@ -26,7 +26,7 @@ Feature: Delegate Routes
 
     Examples:
         | body                                                                          |
-        | {"name": "00000", "did": "did:ethr:082103uj03ujm32193m2", "registerId": ""}   |
+        | {"name": "00000", "did": "did:ethr:082103uj03ujm32193m2", "registerId": "31231231"}   |
 
   Scenario Outline: Change the name that will be displayed in all the certificates issued by this issuer or its delegates.
     Given A account <body>
